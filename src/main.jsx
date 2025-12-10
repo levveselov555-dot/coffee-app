@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App.jsx';
 import './index.css';
+import './analytics.js'; 
 
 // Оптимизация: отложенная загрузка ненужных ресурсов
 const loadAnalytics = () => {
