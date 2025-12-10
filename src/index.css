@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-800 font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Улучшение производительности для анимаций */
+  *, *::before, *::after {
+    @apply transition-colors duration-200;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Улучшение читаемости для текста */
+  p, li, span, div {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-coffee-500 text-white font-medium rounded-lg 
+           hover:bg-coffee-600 active:bg-coffee-700 focus:outline-none focus:ring-2 focus:ring-coffee-500 
+           focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 
+           transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 border-2 border-coffee-500 text-coffee-600 
+           font-medium rounded-lg hover:bg-coffee-50 active:bg-coffee-100 focus:outline-none 
+           focus:ring-2 focus:ring-coffee-500 focus:ring-offset-2 disabled:opacity-50 
+           disabled:cursor-not-allowed transition-all duration-200;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-coffee-500 
+           focus:border-transparent focus:outline-none transition-all duration-200 placeholder-gray-400
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  /* Скелетон для загрузки */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+  
+  /* Кастомный скроллбар */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.coffee.300') theme('colors.gray.100');
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-coffee-300 rounded hover:bg-coffee-400 transition-colors;
+  }
+}
+
+@layer utilities {
+  /* Оптимизация для печати */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    .print-break {
+      page-break-before: always;
+    }
+  }
+  
+  /* Улучшение производительности */
+  .will-change-transform {
+    will-change: transform;
+  }
+  
+  .will-change-opacity {
+    will-change: opacity;
+  }
+  
+  /* Стили для line-clamp */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+  
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+  
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  
+  /* Анимация fade-in для изображений */
+  .fade-in-image {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Оптимизация для мобильных устройств */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
+  
+  /* Предотвращение зума на iOS */
+  input, textarea {
+    font-size: 16px !important;
+  }
+}
